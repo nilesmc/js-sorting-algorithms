@@ -1,7 +1,7 @@
 let start = new Date().getTime();
 
-let list = [24,4,42,15,16,8,3];
-let sortedList = [3,4,8,15,16,24,42];
+let list = [24,4,42,15,16,8,-1, 3];
+let sortedList = [-1, 3,4,8,15,16,24,42];
 
 const quickSort = (list) => {
   if(list.length < 2) return list;
