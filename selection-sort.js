@@ -4,30 +4,30 @@ let list = [24,4,42,15,16,8,-1,3];
 let sortedList = [-1,3,4,8,15,16,24,42];
 
 const selectionSort = (list) => {
-  // iterate over all items in the array.
-  for(let i = 0; i < list.length; i++) {
-    // set a var for the current index to capture the index with the minimum val later.
-    let minIndex = i;
+ // iterate over all items in the list
+ const listLength = list.length;
+ for(let i = 0; i < listLength; i++){
+  // set a variable to store the minimum value, start it on the current val.
+  let minIndex = i
 
-    // check to see if listItem is bigger than other items in the list by iterating over all the other items, if it it set the minIndex
-    for(let listItem = minIndex + 1; listItem < list.length; listItem++ ){
-
-      if(list[minIndex] > list[listItem] ) {
-        // if it is set, set minIndex to the listItem that is smaller;
-        minIndex = listItem;
-      }
-
-    }
-
-    // if the listItem is smaller move it to the position of the old minIndex, and swap it with the original min Value.
-    if (minIndex != i) {
-      let oldMinValue = list[i];
-      list[i] = list[minIndex];
-      list[minIndex] = oldMinValue;
+  // iterate over all the other items in the array to find the index with the lowest value
+  for(let p = minIndex + 1; p < listLength; p++){
+    if(list[p] < list[minIndex]){
+      // if the minIndex is bigger than the current item set the minIndex to the smaller current value.
+      minIndex = p;
     }
   }
 
-  return list;
+  // if the minIndex is different than the index, then swap the two.
+  if(minIndex != i){
+    console.log('updating order', list);
+    const minIndexVal = list[minIndex];
+    list[minIndex] = list[i];
+    list[i] = minIndexVal;
+  }
+ }
+
+ return list;
 }
 
 const outputList = selectionSort(list);
